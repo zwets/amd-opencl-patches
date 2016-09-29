@@ -4,14 +4,14 @@ The steps below fix the issues with the `fglrx-core` package which I discussed i
 [OpenCL on a dual graphics Dell M4800](http://io.zwets.it/2016/08/18/opencl-on-a-dual-graphics-dell-m4800/),
 
 
-### Steps 
+### Steps
 
 Unpack the debfile just as it is layed out
 
     dpkg-deb -R fglrx-core_*.deb fglrx-core
     cd fglrx-core
 
-Rename clinfo to clinfo-amd (or rm it altogether)
+Rename `clinfo` to `clinfo-amd` (or `rm` it altogether)
 
     mv usr/bin/clinfo usr/bin/clinfo-amd
     sed -i -e 's/clinfo$/clinfo-amd/' DEBIAN/md5sums
@@ -56,5 +56,4 @@ and setgid attributes on `amd-console-helper`.  do we really need that?
     sudo chmod ug+s usr/bin/amd-console-helper
     cd ..
     sudo dpkg-deb -b
-
 
